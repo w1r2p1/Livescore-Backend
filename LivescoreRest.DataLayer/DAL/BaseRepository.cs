@@ -42,10 +42,12 @@ namespace LivescoreRest.DataLayer.DAL
             }
         }
 
-        public void Delete(T entity)
+        public void Delete(int id)
         {
             using (var dbContext = new LivescoreDbContext())
             {
+                var dbSet = GetDbSet(dbContext);
+                var entity = dbSet.Find(id);
                 dbContext.Entry(entity).State = EntityState.Deleted;
                 dbContext.SaveChanges();
             }

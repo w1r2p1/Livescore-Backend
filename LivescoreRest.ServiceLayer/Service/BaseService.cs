@@ -36,9 +36,9 @@ namespace LivescoreRest.ServiceLayer.Service
             return _repository.Add(entity);
         }
 
-        public void Delete(T entity)
+        public void Delete(int id)
         {
-            _repository.Delete(entity);
+            _repository.Delete(id);
         }
 
         public void Edit(T entity)

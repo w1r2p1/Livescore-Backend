@@ -12,7 +12,7 @@ namespace LivescoreRest.DataLayer.DAL.Interface
         IEnumerable<T> GetAll();
         T GetById(int id);
         T Add(T entity);
-        void Delete(T entity);
+        void Delete(int id);
         void Edit(T entity);
        
     }
