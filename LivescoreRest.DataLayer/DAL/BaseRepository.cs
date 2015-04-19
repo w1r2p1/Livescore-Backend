@@ -55,7 +55,12 @@ namespace LivescoreRest.DataLayer.DAL
 
         public void Edit(T entity)
         {
-            throw new NotImplementedException();
+            using (var dbContext = new LivescoreDbContext())
+            {
+                var dbSet = GetDbSet(dbContext);
+                dbContext.Entry(entity).State = EntityState.Modified;
+                dbContext.SaveChanges();
+            }
         }
     }
 }
