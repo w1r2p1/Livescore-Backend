@@ -16,6 +16,7 @@ namespace LivescoreRest.DataLayer
         }
 
         public DbSet<Team> Team { get; set; }
+        public DbSet<Player> Player { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
