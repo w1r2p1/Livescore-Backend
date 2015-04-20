@@ -12,5 +12,10 @@ namespace LivescoreRest.Models
         {
             return new TeamRepository();
         }
+
+        public PlayerRepository GetPlayerRepository()
+        {
+            return new PlayerRepository();
+        }
     }
 }
