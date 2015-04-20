@@ -1,5 +1,6 @@
 ﻿using LivescoreRest.DataLayer.DAL;
 using LivescoreRest.DataLayer.Entities;
+using LivescoreRest.Models;
 using LivescoreRest.ServiceLayer.Service;
 using LivescoreRest.ServiceLayer.Service.Interface;
 using System;
@@ -18,7 +19,8 @@ namespace LivescoreRest.Controllers
 
         public TeamsController()
         {
-            _teamService = new TeamService(new TeamRepository());
+            var serviceProvider = new ServiceClassProvider();
+            _teamService = serviceProvider.GetTeamServiceObject();
         }
 
         public IHttpActionResult GetAllTeams()
@@ -45,6 +47,13 @@ namespace LivescoreRest.Controllers
         {
                 _teamService.Delete(id);
             return Ok();
+        }
+
+        [HttpPut]
+        public IHttpActionResult EditTeam(Team team)
+        {
+            _teamService.Edit(team);
+            return Ok(team);
         }
     }
 }
