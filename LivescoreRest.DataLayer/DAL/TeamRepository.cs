@@ -14,5 +14,13 @@ namespace LivescoreRest.DataLayer.DAL
         {
             return context.Team;
         }
+
+        public IEnumerable<Team> GetAllTeamsForUser(string userID)
+        {
+            using (var dbContext = new LivescoreDbContext())
+            {
+                return dbContext.Team.Where(x => x.UserID == userID).ToList();
+            }
+        }
     }
 }

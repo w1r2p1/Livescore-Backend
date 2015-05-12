@@ -8,11 +8,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Security.Claims;
 using System.Web.Http;
 
 namespace LivescoreRest.Controllers
 {
-
+    [Authorize]
     public class TeamsController : ApiController
     {
         private readonly ITeamService _teamService;
@@ -23,10 +24,16 @@ namespace LivescoreRest.Controllers
             _teamService = serviceProvider.GetTeamServiceObject();
         }
 
-        [AllowAnonymous]
+        private string GetUserID()
+        {
+            var user = (ClaimsIdentity)RequestContext.Principal.Identity;
+            return user.Claims.First(x => x.Type == "UserID").Value;
+        }
+        
         public IHttpActionResult GetAllTeams()
         {
-            var teams = _teamService.GetAll();
+            string userID = GetUserID();
+            var teams = _teamService.GetAllTeamsForUser(userID);
             return Ok(teams);
         }
 
@@ -40,6 +47,8 @@ namespace LivescoreRest.Controllers
         [HttpPost]
         public IHttpActionResult AddTeam(Team team)
         {
+            string userID = GetUserID();
+            team.UserID = userID;
             _teamService.Add(team);
             return Ok();
         }

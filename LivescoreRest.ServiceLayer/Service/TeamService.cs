@@ -17,5 +17,10 @@ namespace LivescoreRest.ServiceLayer.Service
         {
             _teamRepository = teamRepository;
         }
+
+        public IEnumerable<Team> GetAllTeamsForUser(string userID)
+        {
+            return _teamRepository.GetAllTeamsForUser(userID);
+        }
     }
 }

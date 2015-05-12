@@ -99,6 +99,10 @@
     <Compile Include="Migrations\201504202006531_Players.Designer.cs">
       <DependentUpon>201504202006531_Players.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201505120820364_UserIDAsString.cs" />
+    <Compile Include="Migrations\201505120820364_UserIDAsString.Designer.cs">
+      <DependentUpon>201505120820364_UserIDAsString.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -112,6 +116,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201504202006531_Players.resx">
       <DependentUpon>201504202006531_Players.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505120820364_UserIDAsString.resx">
+      <DependentUpon>201505120820364_UserIDAsString.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

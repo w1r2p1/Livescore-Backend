@@ -9,5 +9,6 @@ namespace LivescoreRest.ServiceLayer.Service.Interface
 {
     public interface ITeamService: IBaseService<Team>
     {
+        IEnumerable<Team> GetAllTeamsForUser(string userID);
     }
 }

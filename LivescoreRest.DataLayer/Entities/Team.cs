@@ -13,5 +13,7 @@ namespace LivescoreRest.DataLayer.Entities
         public string TeamName { get; set; }
 
         public string TeamLevel { get; set; }
+
+        public string UserID { get; set; }
     }
 }
