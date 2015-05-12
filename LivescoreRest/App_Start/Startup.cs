@@ -1,6 +1,8 @@
 ﻿using LivescoreRest;
 using LivescoreRest.Helpers;
+using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
+using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
 using System;
@@ -17,7 +19,11 @@ namespace AngularJSAuthentication.API
         public void Configuration(IAppBuilder app)
         {
             ConfigureOAuth(app);
+
+            
+
             HttpConfiguration config = new HttpConfiguration();
+            config.Filters.Add(new AuthorizeAttribute());
             app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
             WebApiConfig.Register(config);
             app.UseWebApi (config);

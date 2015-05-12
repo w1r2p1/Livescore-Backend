@@ -19,18 +19,21 @@ namespace LivescoreRest.Helpers
 
         public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
         {
+            
+            //context.OwinContext.Request.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
+            context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "http://localhost:8081" }); 
+            context.OwinContext.Response.Headers.Add("Access-Control-Allow-Credentials", new[] { "true" }); 
+            bool isValidUser = false;
 
-            context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
-
-            using (AuthRepository _repo = new AuthRepository())
+            if (context.UserName == "test" && context.Password == "test")
             {
-                IdentityUser user = await _repo.FindUser(context.UserName, context.Password);
+                isValidUser = true;
+            }
 
-                if (user == null)
-                {
-                    context.SetError("invalid_grant", "The user name or password is incorrect.");
-                    return;
-                }
+            if (!isValidUser)
+            {
+                context.SetError("invalid_grant", "The user name or password is incorrect.");
+                return;
             }
 
             var identity = new ClaimsIdentity(context.Options.AuthenticationType);
@@ -38,7 +41,6 @@ namespace LivescoreRest.Helpers
             identity.AddClaim(new Claim("role", "user"));
 
             context.Validated(identity);
-
         }
     }
 }

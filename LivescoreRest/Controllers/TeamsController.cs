@@ -23,6 +23,7 @@ namespace LivescoreRest.Controllers
             _teamService = serviceProvider.GetTeamServiceObject();
         }
 
+        [AllowAnonymous]
         public IHttpActionResult GetAllTeams()
         {
             var teams = _teamService.GetAll();

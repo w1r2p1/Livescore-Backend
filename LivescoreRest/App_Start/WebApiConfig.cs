@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Serialization;
+﻿using AngularJSAuthentication.API;
+using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,7 @@ namespace LivescoreRest
         {
             // Web API configuration and services
             var corsAttr = new EnableCorsAttribute("http://localhost:8081", "*", "*");
+            
             config.EnableCors(corsAttr);
             // Web API routes
             config.MapHttpAttributeRoutes();

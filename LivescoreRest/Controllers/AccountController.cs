@@ -1,11 +1,15 @@
-﻿using LivescoreRest.DataLayer.DAL;
+﻿using AngularJSAuthentication.API;
+using LivescoreRest.DataLayer.DAL;
 using LivescoreRest.DataLayer.Entities;
+using LivescoreRest.Helpers;
+using LivescoreRest.Models;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web.Http;
 
@@ -41,6 +45,33 @@ namespace LivescoreRest.Controllers
             }
 
             return Ok();
+        }
+
+        // POST api/Account/Login
+        [AllowAnonymous]
+        [Route("Login")]
+        public async Task<HttpResponseMessage> Login(UserModel model)
+        {
+            //if (!ModelState.IsValid)
+            //{
+            //    return BadRequest(ModelState);
+            //}
+
+            var result = await _repo.FindUser(model.UserName, model.Password);
+
+            
+
+            if (result == null)
+            {
+                new HttpResponseMessage(HttpStatusCode.BadRequest);
+            }
+
+            
+
+            return new HttpResponseMessage(HttpStatusCode.OK)
+            {
+               
+            };
         }
 
         protected override void Dispose(bool disposing)
