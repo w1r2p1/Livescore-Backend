@@ -1,4 +1,5 @@
-﻿using LivescoreRest.DataLayer.DAL;
+﻿using AutoMapper;
+using LivescoreRest.DataLayer.DAL;
 using LivescoreRest.DataLayer.Entities;
 using LivescoreRest.Models;
 using LivescoreRest.ServiceLayer.Service;
@@ -45,11 +46,11 @@ namespace LivescoreRest.Controllers
         }
 
         [HttpPost]
-        public IHttpActionResult AddTeam(Team team)
+        public IHttpActionResult AddTeam(TeamViewModel team)
         {
             string userID = GetUserID();
             team.UserID = userID;
-            _teamService.Add(team);
+            _teamService.Add(Mapper.Map<Team>(team));
             return Ok();
         }
         [HttpDelete]

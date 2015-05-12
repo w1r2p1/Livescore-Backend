@@ -1,4 +1,6 @@
-﻿using LivescoreRest;
+﻿using AutoMapper;
+using LivescoreRest;
+using LivescoreRest.App_Start;
 using LivescoreRest.Helpers;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
@@ -19,7 +21,8 @@ namespace AngularJSAuthentication.API
         public void Configuration(IAppBuilder app)
         {
             ConfigureOAuth(app);
-
+            AutomapperConfiguration.Configure();
+            Mapper.AssertConfigurationIsValid();
             
 
             HttpConfiguration config = new HttpConfiguration();
