@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LivescoreRest.ServiceLayer.Service.Interface
 {
-    public interface IBaseService<T> where T : BaseEntity
+    public interface IBaseService<T> : IService where T : BaseEntity
     {
         IEnumerable<T> GetAll();
         T GetById(int id);

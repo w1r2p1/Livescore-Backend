@@ -10,14 +10,14 @@ using System.Web.Http;
 
 namespace LivescoreRest.Controllers
 {
+    [Authorize]
     public class PlayersController : ApiController
     {
         private readonly IPlayerService _playerService;
 
-        public PlayersController()
+        public PlayersController(IPlayerService playerService)
         {
-            var serviceProvider = new ServiceClassProvider();
-            _playerService = serviceProvider.GetPlayerService();
+            _playerService = playerService;
         }
 
         [HttpGet]

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LivescoreRest.DataLayer.DAL.Interface
 {
-    public interface IBaseRepository<T> where T : BaseEntity
+    public interface IBaseRepository<T> : IRepository where T : BaseEntity
     {
         IEnumerable<T> GetAll();
         T GetById(int id);
