@@ -43,6 +43,7 @@
     <Compile Include="Service\BaseService.cs" />
     <Compile Include="Service\Interface\IBaseService.cs" />
     <Compile Include="Service\Interface\IPlayerService.cs" />
+    <Compile Include="Service\Interface\IService.cs" />
     <Compile Include="Service\Interface\ITeamService.cs" />
     <Compile Include="Service\PlayerService.cs" />
     <Compile Include="Service\TeamService.cs" />

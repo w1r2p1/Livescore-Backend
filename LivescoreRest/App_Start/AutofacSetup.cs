@@ -1,24 +1,31 @@
 ﻿using Autofac;
+using Autofac.Integration.WebApi;
 using LivescoreRest.DataLayer.DAL;
 using LivescoreRest.DataLayer.DAL.Interface;
+using LivescoreRest.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Web;
+using System.Web.Http;
+using LivescoreRest.ServiceLayer.Service;
+using LivescoreRest.ServiceLayer.Service.Interface;
 
 namespace LivescoreRest.App_Start
 {
-    public class AutofacSetup
+    public static class AutofacSetup
     {
-        public static IContainer Container { get; set; }
+        
 
-        public static void RegisterDependencies()
+        public static void RegisterDependencies(ref ContainerBuilder builder)
         {
-            var builder = new ContainerBuilder();
-            builder.RegisterType<TeamRepository>().As<ITeamRepository>().InstancePerLifetimeScope();
 
-            Container = builder.Build();
-            
+            builder.RegisterType<TeamsController>();
+
+            builder.RegisterType<TeamRepository>().As<ITeamRepository>();
+            builder.RegisterType<TeamService>().As<ITeamService>();
+
         }
     }
 }

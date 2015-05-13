@@ -19,10 +19,10 @@ namespace LivescoreRest.Controllers
     {
         private readonly ITeamService _teamService;
 
-        public TeamsController()
+        public TeamsController(ITeamService teamService)
         {
             var serviceProvider = new ServiceClassProvider();
-            _teamService = serviceProvider.GetTeamServiceObject();
+            _teamService = teamService;//serviceProvider.GetTeamServiceObject();
         }
 
         private string GetUserID()

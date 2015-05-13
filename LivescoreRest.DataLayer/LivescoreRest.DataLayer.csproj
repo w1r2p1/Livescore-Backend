@@ -86,6 +86,7 @@
     <Compile Include="DAL\BaseRepository.cs" />
     <Compile Include="DAL\Interface\IBaseRepository.cs" />
     <Compile Include="DAL\Interface\IPlayerRepository.cs" />
+    <Compile Include="DAL\Interface\IRepository.cs" />
     <Compile Include="DAL\Interface\ITeamRepository.cs" />
     <Compile Include="DAL\PlayerRepository.cs" />
     <Compile Include="DAL\TeamRepository.cs" />
