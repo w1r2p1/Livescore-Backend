@@ -22,9 +22,12 @@ namespace LivescoreRest.App_Start
         {
 
             builder.RegisterType<TeamsController>();
+            builder.RegisterType<PlayersController>();
 
             builder.RegisterType<TeamRepository>().As<ITeamRepository>();
             builder.RegisterType<TeamService>().As<ITeamService>();
+            builder.RegisterType<PlayerRepository>().As<IPlayerRepository>();
+            builder.RegisterType<PlayerService>().As<IPlayerService>();
 
         }
     }

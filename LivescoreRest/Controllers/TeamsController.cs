@@ -21,8 +21,7 @@ namespace LivescoreRest.Controllers
 
         public TeamsController(ITeamService teamService)
         {
-            var serviceProvider = new ServiceClassProvider();
-            _teamService = teamService;//serviceProvider.GetTeamServiceObject();
+            _teamService = teamService;
         }
 
         private string GetUserID()
