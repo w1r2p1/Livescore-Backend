@@ -9,5 +9,6 @@ namespace LivescoreRest.DataLayer.DAL.Interface
 {
     public interface IPlayerRepository : IBaseRepository<Player>
     {
+        IEnumerable<Player> GetAllByTeamID(int teamID);
     }
 }
