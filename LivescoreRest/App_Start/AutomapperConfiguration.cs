@@ -13,11 +13,20 @@ namespace LivescoreRest.App_Start
         public static void Configure()
         {
             TeamMappers();
+            PlayerMappers();
         }
 
         private static void TeamMappers() 
         {
             Mapper.CreateMap<TeamViewModel, Team>();
+            Mapper.CreateMap<Team, TeamViewModel>();
         }
+
+        private static void PlayerMappers()
+        {
+            Mapper.CreateMap<Player, PlayerViewModel>();
+            Mapper.CreateMap<PlayerViewModel, Player>();
+        }
+
     }
 }

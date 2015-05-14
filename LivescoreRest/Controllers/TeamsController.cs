@@ -30,11 +30,24 @@ namespace LivescoreRest.Controllers
             return user.Claims.First(x => x.Type == "UserID").Value;
         }
         
-        public IHttpActionResult GetAllTeams()
+        public IHttpActionResult GetAllTeamsForUser()
         {
             string userID = GetUserID();
             var teams = _teamService.GetAllTeamsForUser(userID);
             return Ok(teams);
+        }
+
+        [Route("api/teams/allteams")]
+        [HttpGet]
+        public IHttpActionResult GetAllTeams()
+        {
+            var teams = Mapper.Map<IEnumerable<TeamViewModel>>(_teamService.GetAll());
+            var model = new AllTeamsViewModel()
+            {
+                MyTeams = teams.Where(x => x.UserID == GetUserID()),
+                OtherTeams = teams.Where(x => x.UserID != GetUserID())
+            };
+            return Ok(model);
         }
 
         [HttpGet]

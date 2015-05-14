@@ -179,7 +179,9 @@
     <Compile Include="Controllers\PlayersController.cs" />
     <Compile Include="Controllers\TeamsController.cs" />
     <Compile Include="Helpers\SimpleAuthorizationServerProvider.cs" />
+    <Compile Include="Models\AllTeamsViewModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\PlayerViewModel.cs" />
     <Compile Include="Models\RepositoryClassProvider.cs" />
     <Compile Include="Models\ServiceClassProvider.cs" />
     <Compile Include="Models\TeamViewModel.cs" />
