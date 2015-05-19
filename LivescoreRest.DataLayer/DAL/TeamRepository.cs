@@ -22,5 +22,21 @@ namespace LivescoreRest.DataLayer.DAL
                 return dbContext.Team.Where(x => x.UserID == userID).ToList();
             }
         }
+
+        public IEnumerable<string> GetAllLevels()
+        {
+            using (var dbContext = new LivescoreDbContext())
+            {
+                return dbContext.Team.Select(x => x.TeamLevel).Distinct().ToList();
+            }
+        }
+
+        public IEnumerable<Team> GetAllTeamsFromLevel(string level)
+        {
+            using (var dbContext = new LivescoreDbContext())
+            {
+                return dbContext.Team.Where(x => x.TeamLevel == level).ToList();
+            }
+        }
     }
 }
