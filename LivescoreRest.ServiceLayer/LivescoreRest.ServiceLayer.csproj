@@ -41,7 +41,9 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\BaseService.cs" />
+    <Compile Include="Service\GameService.cs" />
     <Compile Include="Service\Interface\IBaseService.cs" />
+    <Compile Include="Service\Interface\IGameService.cs" />
     <Compile Include="Service\Interface\IPlayerService.cs" />
     <Compile Include="Service\Interface\IService.cs" />
     <Compile Include="Service\Interface\ITeamService.cs" />

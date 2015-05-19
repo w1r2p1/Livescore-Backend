@@ -84,13 +84,16 @@
     <Compile Include="AuthContext.cs" />
     <Compile Include="DAL\AuthRepository.cs" />
     <Compile Include="DAL\BaseRepository.cs" />
+    <Compile Include="DAL\GameRepository.cs" />
     <Compile Include="DAL\Interface\IBaseRepository.cs" />
+    <Compile Include="DAL\Interface\IGameRepository.cs" />
     <Compile Include="DAL\Interface\IPlayerRepository.cs" />
     <Compile Include="DAL\Interface\IRepository.cs" />
     <Compile Include="DAL\Interface\ITeamRepository.cs" />
     <Compile Include="DAL\PlayerRepository.cs" />
     <Compile Include="DAL\TeamRepository.cs" />
     <Compile Include="Entities\BaseEntity.cs" />
+    <Compile Include="Entities\Game.cs" />
     <Compile Include="Entities\Player.cs" />
     <Compile Include="Entities\Team.cs" />
     <Compile Include="Entities\UserModel.cs" />
@@ -106,6 +109,18 @@
     <Compile Include="Migrations\201505120820364_UserIDAsString.cs" />
     <Compile Include="Migrations\201505120820364_UserIDAsString.Designer.cs">
       <DependentUpon>201505120820364_UserIDAsString.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201505191253129_Game.cs" />
+    <Compile Include="Migrations\201505191253129_Game.Designer.cs">
+      <DependentUpon>201505191253129_Game.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201505191648015_GameUserId.cs" />
+    <Compile Include="Migrations\201505191648015_GameUserId.Designer.cs">
+      <DependentUpon>201505191648015_GameUserId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201505191701358_GameDate.cs" />
+    <Compile Include="Migrations\201505191701358_GameDate.Designer.cs">
+      <DependentUpon>201505191701358_GameDate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -123,6 +138,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201505120820364_UserIDAsString.resx">
       <DependentUpon>201505120820364_UserIDAsString.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505191253129_Game.resx">
+      <DependentUpon>201505191253129_Game.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505191648015_GameUserId.resx">
+      <DependentUpon>201505191648015_GameUserId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505191701358_GameDate.resx">
+      <DependentUpon>201505191701358_GameDate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

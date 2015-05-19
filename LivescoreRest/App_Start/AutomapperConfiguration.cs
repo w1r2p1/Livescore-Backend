@@ -14,6 +14,7 @@ namespace LivescoreRest.App_Start
         {
             TeamMappers();
             PlayerMappers();
+            GameMappers();
         }
 
         private static void TeamMappers() 
@@ -26,6 +27,12 @@ namespace LivescoreRest.App_Start
         {
             Mapper.CreateMap<Player, PlayerViewModel>();
             Mapper.CreateMap<PlayerViewModel, Player>();
+        }
+
+        private static void GameMappers()
+        {
+            Mapper.CreateMap<Game, GameViewModel>();
+            Mapper.CreateMap<GameViewModel, Game>();
         }
 
     }

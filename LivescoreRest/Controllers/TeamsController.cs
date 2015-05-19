@@ -50,6 +50,21 @@ namespace LivescoreRest.Controllers
             return Ok(model);
         }
 
+        [Route("api/teams/levels")]
+        [HttpGet]
+        public IHttpActionResult Levels() 
+        {
+
+            return Ok(_teamService.GetAllLevels());
+        }
+
+        [Route("api/teams/levels/{level}")]
+        [HttpGet]
+        public IHttpActionResult Levels(string level)
+        {
+            return Ok(_teamService.GetAllTeamsFromLevel(level));
+        }
+
         [HttpGet]
         public IHttpActionResult GetTeam(int id)
         {

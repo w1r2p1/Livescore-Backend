@@ -20,14 +20,18 @@ namespace LivescoreRest.App_Start
 
         public static void RegisterDependencies(ref ContainerBuilder builder)
         {
-
+            //Controllers
             builder.RegisterType<TeamsController>();
             builder.RegisterType<PlayersController>();
+            builder.RegisterType<GamesController>();
 
+            //Servies and repositories
             builder.RegisterType<TeamRepository>().As<ITeamRepository>();
             builder.RegisterType<TeamService>().As<ITeamService>();
             builder.RegisterType<PlayerRepository>().As<IPlayerRepository>();
             builder.RegisterType<PlayerService>().As<IPlayerService>();
+            builder.RegisterType<GameRepository>().As<IGameRepository>();
+            builder.RegisterType<GameService>().As<IGameService>();
 
         }
     }

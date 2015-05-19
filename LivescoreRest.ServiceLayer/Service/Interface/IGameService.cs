@@ -7,10 +7,7 @@ using System.Threading.Tasks;
 
 namespace LivescoreRest.ServiceLayer.Service.Interface
 {
-    public interface ITeamService: IBaseService<Team>
+    public interface IGameService : IBaseService<Game>
     {
-        IEnumerable<Team> GetAllTeamsForUser(string userID);
-        IEnumerable<string> GetAllLevels();
-        IEnumerable<Team> GetAllTeamsFromLevel(string level);
     }
 }
