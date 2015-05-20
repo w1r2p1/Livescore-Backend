@@ -12,6 +12,7 @@ using System.Web.Http;
 
 namespace LivescoreRest.Controllers
 {
+    [Authorize]
     public class GamesController : ApiController
     {
         private readonly IGameService _gameService;
@@ -38,6 +39,14 @@ namespace LivescoreRest.Controllers
             model.UserId = GetUserID();
             var game = _gameService.Add(Mapper.Map<Game>(model));
             return Ok(Mapper.Map<GameViewModel>(game));
+        }
+
+        [HttpGet]
+        [Route("api/games/mycoming")]
+        public IHttpActionResult MyComingGames()
+        {
+            var comingGames = Mapper.Map<IEnumerable<GameViewModel>>(_gameService.GetMyComingGames(GetUserID()));
+            return Ok(comingGames);
         }
     }
 }

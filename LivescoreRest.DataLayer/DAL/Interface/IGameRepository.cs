@@ -9,5 +9,6 @@ namespace LivescoreRest.DataLayer.DAL.Interface
 {
     public interface IGameRepository : IBaseRepository<Game>
     {
+        IEnumerable<Game> GetMyComingGames(string userId);
     }
 }

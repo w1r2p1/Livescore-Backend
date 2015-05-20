@@ -9,5 +9,6 @@ namespace LivescoreRest.ServiceLayer.Service.Interface
 {
     public interface IGameService : IBaseService<Game>
     {
+        IEnumerable<Game> GetMyComingGames(string userId);
     }
 }

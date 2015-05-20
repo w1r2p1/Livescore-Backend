@@ -18,5 +18,10 @@ namespace LivescoreRest.ServiceLayer.Service
         {
             _gameRepository = gameRepository;
         }
+
+        public IEnumerable<Game> GetMyComingGames(string userId)
+        {
+            return _gameRepository.GetMyComingGames(userId);
+        }
     }
 }

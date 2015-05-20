@@ -12,7 +12,7 @@ namespace LivescoreRest.DataLayer
     {
         public LivescoreDbContext()
         {
-
+            //this.Configuration.LazyLoadingEnabled = false;
         }
 
         public DbSet<Team> Team { get; set; }
