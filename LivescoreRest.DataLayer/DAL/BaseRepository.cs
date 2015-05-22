@@ -14,7 +14,7 @@ namespace LivescoreRest.DataLayer.DAL
 
         public abstract DbSet<T> GetDbSet(LivescoreDbContext context);
 
-        public IEnumerable<T> GetAll()
+        public virtual IEnumerable<T> GetAll()
         {
             using (var dbContext = new LivescoreDbContext())
             {
@@ -23,7 +23,7 @@ namespace LivescoreRest.DataLayer.DAL
             }
         }
 
-        public T GetById(int id)
+        public virtual T GetById(int id)
         {
             using (var dbContext = new LivescoreDbContext())
             {
@@ -32,7 +32,7 @@ namespace LivescoreRest.DataLayer.DAL
             }
         }
 
-        public T Add(T entity)
+        public virtual T Add(T entity)
         {
             using (var dbContext = new LivescoreDbContext())
             {
@@ -42,7 +42,7 @@ namespace LivescoreRest.DataLayer.DAL
             }
         }
 
-        public void Delete(int id)
+        public virtual void Delete(int id)
         {
             using (var dbContext = new LivescoreDbContext())
             {
@@ -53,7 +53,7 @@ namespace LivescoreRest.DataLayer.DAL
             }
         }
 
-        public void Edit(T entity)
+        public virtual void Edit(T entity)
         {
             using (var dbContext = new LivescoreDbContext())
             {

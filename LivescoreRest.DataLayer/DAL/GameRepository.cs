@@ -21,10 +21,19 @@ namespace LivescoreRest.DataLayer.DAL
         {
             using (var dbContext = new LivescoreDbContext())
             {
-                DateTime comparisonDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day - 1);
+                DateTime comparisonDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
                 var games = 
                     dbContext.Game.Where(x => x.UserId == userId && x.MatchDate > comparisonDate).Include(x => x.AwayTeam).Include(x => x.HomeTeam);
                 return games.ToList();
+            }
+        }
+
+        public override Game GetById(int id)
+        {
+            using (var dbContext = new LivescoreDbContext())
+            {
+                var game = dbContext.Game.Where(x => x.Id == id).Include(x => x.AwayTeam).Include(x => x.HomeTeam).FirstOrDefault();
+                return game;
             }
         }
     }
