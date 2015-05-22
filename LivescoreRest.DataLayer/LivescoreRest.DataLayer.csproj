@@ -122,6 +122,10 @@
     <Compile Include="Migrations\201505191701358_GameDate.Designer.cs">
       <DependentUpon>201505191701358_GameDate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201505211137378_GameUserIDMandatory.cs" />
+    <Compile Include="Migrations\201505211137378_GameUserIDMandatory.Designer.cs">
+      <DependentUpon>201505211137378_GameUserIDMandatory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -147,6 +151,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201505191701358_GameDate.resx">
       <DependentUpon>201505191701358_GameDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505211137378_GameUserIDMandatory.resx">
+      <DependentUpon>201505211137378_GameUserIDMandatory.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -48,5 +48,14 @@ namespace LivescoreRest.Controllers
             var comingGames = Mapper.Map<IEnumerable<GameViewModel>>(_gameService.GetMyComingGames(GetUserID()));
             return Ok(comingGames);
         }
+
+        [HttpPut]
+        public IHttpActionResult EditGames(GameViewModel model)
+        {
+            model.UserId = GetUserID();
+            _gameService.Edit(Mapper.Map<Game>(model));
+            
+            return Ok();
+        }
     }
 }
