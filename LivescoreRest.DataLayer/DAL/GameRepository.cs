@@ -21,9 +21,9 @@ namespace LivescoreRest.DataLayer.DAL
         {
             using (var dbContext = new LivescoreDbContext())
             {
-                DateTime comparisonDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 0, 0, 0);
+                DateTime comparisonDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day - 1);
                 var games = 
-                    dbContext.Game.Where(x => x.UserId == userId && x.MatchDate >= comparisonDate).Include(x => x.AwayTeam).Include(x => x.HomeTeam);
+                    dbContext.Game.Where(x => x.UserId == userId && x.MatchDate > comparisonDate).Include(x => x.AwayTeam).Include(x => x.HomeTeam);
                 return games.ToList();
             }
         }

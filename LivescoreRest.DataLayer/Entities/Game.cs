@@ -24,6 +24,7 @@ namespace LivescoreRest.DataLayer.Entities
         [ForeignKey("AwayTeamId")]
         public Team AwayTeam { get; set; }
 
+        [Required]
         public string UserId { get; set; }
 
         [Required]
