@@ -57,5 +57,22 @@ namespace LivescoreRest.Controllers
             
             return Ok();
         }
+        
+        [HttpGet]
+        public IHttpActionResult GetGame(int gameId)
+        {
+            var gameModel = Mapper.Map<GameViewModel>(_gameService.GetById(gameId));
+            return Ok(gameModel);
+        }
+
+        [HttpDelete]
+        public IHttpActionResult DeleteGame(int gameId)
+        {
+            _gameService.Delete(gameId);
+            return Ok();
+        }
+
+        
+        
     }
 }
