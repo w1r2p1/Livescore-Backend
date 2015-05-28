@@ -61,7 +61,7 @@ namespace LivescoreRest.Controllers
         [HttpGet]
         public IHttpActionResult GetGame(int gameId)
         {
-            var gameModel = Mapper.Map<GameViewModel>(_gameService.GetById(gameId));
+            var gameModel = Mapper.Map<GameViewModel>(_gameService.GetGame(gameId));
             return Ok(gameModel);
         }
 

@@ -24,5 +24,8 @@ namespace LivescoreRest.Models
 
         [Required]
         public DateTime MatchDate { get; set; }
+
+        public IEnumerable<PlayerViewModel> HomeTeamPlayers { get; set; }
+        public IEnumerable<PlayerViewModel> AwayTeamPlayers { get; set; }
     }
 }
