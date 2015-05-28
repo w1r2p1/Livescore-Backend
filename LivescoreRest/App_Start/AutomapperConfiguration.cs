@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using LivescoreRest.DataLayer.Entities;
 using LivescoreRest.Models;
+using LivescoreRest.ServiceLayer.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace LivescoreRest.App_Start
             GameMappers();
         }
 
-        private static void TeamMappers() 
+        private static void TeamMappers()
         {
             Mapper.CreateMap<TeamViewModel, Team>();
             Mapper.CreateMap<Team, TeamViewModel>();
@@ -31,8 +32,19 @@ namespace LivescoreRest.App_Start
 
         private static void GameMappers()
         {
-            Mapper.CreateMap<Game, GameViewModel>();
+            Mapper.CreateMap<Game, GameViewModel>()
+                .ForMember(x => x.AwayTeamPlayers, y => y.Ignore())
+                .ForMember(x => x.HomeTeamPlayers, y => y.Ignore());
+
             Mapper.CreateMap<GameViewModel, Game>();
+
+            Mapper.CreateMap<DTOGame, Game>();
+            Mapper.CreateMap<Game, DTOGame>()
+                .ForMember(x => x.AwayTeamPlayers, y => y.Ignore())
+                .ForMember(x => x.HomeTeamPlayers, y => y.Ignore());
+
+            Mapper.CreateMap<DTOGame, GameViewModel>();
+            Mapper.CreateMap<GameViewModel, DTOGame>();
         }
 
     }

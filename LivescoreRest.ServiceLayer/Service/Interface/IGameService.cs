@@ -1,4 +1,5 @@
 ﻿using LivescoreRest.DataLayer.Entities;
+using LivescoreRest.ServiceLayer.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,5 +11,6 @@ namespace LivescoreRest.ServiceLayer.Service.Interface
     public interface IGameService : IBaseService<Game>
     {
         IEnumerable<Game> GetMyComingGames(string userId);
+        DTOGame GetGame(int id);
     }
 }
