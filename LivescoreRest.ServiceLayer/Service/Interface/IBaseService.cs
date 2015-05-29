@@ -1,4 +1,5 @@
 ﻿using LivescoreRest.DataLayer.Entities;
+using LivescoreRest.ServiceLayer.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,12 +8,14 @@ using System.Threading.Tasks;
 
 namespace LivescoreRest.ServiceLayer.Service.Interface
 {
-    public interface IBaseService<T> : IService where T : BaseEntity
+    public interface IBaseService<T, DTO> : IService 
+        where T : BaseEntity
+        where DTO : BaseDTO
     {
-        IEnumerable<T> GetAll();
-        T GetById(int id);
-        T Add(T entity);
+        IEnumerable<DTO> GetAll();
+        DTO GetById(int id);
+        DTO Add(DTO dto);
         void Delete(int id);
-        void Edit(T entity);
+        void Edit(DTO dto);
     }
 }

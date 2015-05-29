@@ -8,7 +8,7 @@ namespace Common.Helpers
 {
     public class MatchIncidents
     {
-        enum MatchIncidentsEnum
+        public enum MatchIncidentsEnum
         {
             Comment = 1,
             Goal = 2,
@@ -16,8 +16,11 @@ namespace Common.Helpers
             TwoMinutesSuspension = 4,
             RedCard = 5,
             Timeout = 6
-
-
         };
+
+        public int GetMatchIncidentId(MatchIncidentsEnum incident)
+        {
+            return (int)incident;
+        }
     }
 }

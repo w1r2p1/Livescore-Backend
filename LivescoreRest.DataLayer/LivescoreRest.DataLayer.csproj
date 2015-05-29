@@ -129,6 +129,10 @@
     <Compile Include="Migrations\201505211137378_GameUserIDMandatory.Designer.cs">
       <DependentUpon>201505211137378_GameUserIDMandatory.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201505291228295_GameIncidents.cs" />
+    <Compile Include="Migrations\201505291228295_GameIncidents.Designer.cs">
+      <DependentUpon>201505291228295_GameIncidents.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -157,6 +161,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201505211137378_GameUserIDMandatory.resx">
       <DependentUpon>201505211137378_GameUserIDMandatory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505291228295_GameIncidents.resx">
+      <DependentUpon>201505291228295_GameIncidents.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using LivescoreRest.DataLayer.Entities;
 using LivescoreRest.Models;
+using LivescoreRest.ServiceLayer.DTOs;
 using LivescoreRest.ServiceLayer.Service.Interface;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,7 @@ namespace LivescoreRest.Controllers
         [HttpPost]
         public IHttpActionResult NewGameIncident(GameIncidentViewModel model)
         {
-            var incident = Mapper.Map<GameIncident>(model);
+            var incident = Mapper.Map<DTOGameIncident>(model);
             _gameIncidentService.Add(incident);
             return Ok();
         }

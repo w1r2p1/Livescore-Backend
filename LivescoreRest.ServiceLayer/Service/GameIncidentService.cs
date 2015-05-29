@@ -1,5 +1,6 @@
 ﻿using LivescoreRest.DataLayer.DAL.Interface;
 using LivescoreRest.DataLayer.Entities;
+using LivescoreRest.ServiceLayer.DTOs;
 using LivescoreRest.ServiceLayer.Service.Interface;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace LivescoreRest.ServiceLayer.Service
 {
-    public class GameIncidentService : BaseService<GameIncident>, IGameIncidentService
+    public class GameIncidentService : BaseService<GameIncident, DTOGameIncident>, IGameIncidentService
     {
         private readonly IGameIncidentRepository _gameIncidentRepository;
 

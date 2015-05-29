@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace LivescoreRest.ServiceLayer.Service.Interface
 {
-    public interface IGameService : IBaseService<Game>
+    public interface IGameService : IBaseService<Game, DTOGame>
     {
-        IEnumerable<Game> GetMyComingGames(string userId);
+        IEnumerable<DTOGame> GetMyComingGames(string userId);
         DTOGame GetGame(int id);
     }
 }

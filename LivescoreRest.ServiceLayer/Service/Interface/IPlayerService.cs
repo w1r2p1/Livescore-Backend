@@ -1,4 +1,5 @@
 ﻿using LivescoreRest.DataLayer.Entities;
+using LivescoreRest.ServiceLayer.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace LivescoreRest.ServiceLayer.Service.Interface
 {
-    public interface IPlayerService : IBaseService<Player>
+    public interface IPlayerService : IBaseService<Player, DTOPlayer>
     {
-        IEnumerable<Player> GetAllByTeamID(int teamID);
+        IEnumerable<DTOPlayer> GetAllByTeamID(int teamID);
     }
 }

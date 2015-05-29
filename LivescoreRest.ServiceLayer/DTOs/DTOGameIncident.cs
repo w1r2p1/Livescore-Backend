@@ -1,22 +1,20 @@
-﻿using LivescoreRest.ServiceLayer.DTOs;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
+using Common.Helpers;
 
-namespace LivescoreRest.Models
+namespace LivescoreRest.ServiceLayer.DTOs
 {
-    public class GameIncidentViewModel
+    public class DTOGameIncident : BaseDTO
     {
         public int Id { get; set; }
 
-        [Required]
         public string MatchTime { get; set; }
 
         public string Comment { get; set; }
 
-        [Required]
         public int GameId { get; set; }
 
         public DTOGame Game { get; set; }
@@ -25,7 +23,6 @@ namespace LivescoreRest.Models
 
         public DTOPlayer Player { get; set; }
 
-        [Required]
         public Common.Helpers.MatchIncidents.MatchIncidentsEnum MatchIncidentType { get; set; }
     }
 }

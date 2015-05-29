@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using LivescoreRest.DataLayer.Entities;
 using LivescoreRest.Models;
+using LivescoreRest.ServiceLayer.DTOs;
 using LivescoreRest.ServiceLayer.Service.Interface;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,7 @@ namespace LivescoreRest.Controllers
         [HttpGet]
         public IHttpActionResult GetPlayers(int teamID)
         {
-            IEnumerable<Player> players = _playerService.GetAllByTeamID(teamID);
+            IEnumerable<DTOPlayer> players = _playerService.GetAllByTeamID(teamID);
             IEnumerable<PlayerViewModel> models = Mapper.Map<IEnumerable<PlayerViewModel>>(players);
             return Ok(models);
         }
@@ -32,7 +33,7 @@ namespace LivescoreRest.Controllers
         [HttpPost]
         public IHttpActionResult AddPlayer(PlayerViewModel player)
         {
-            player =  Mapper.Map<PlayerViewModel>(_playerService.Add(Mapper.Map<Player>(player)));
+            player =  Mapper.Map<PlayerViewModel>(_playerService.Add(Mapper.Map<DTOPlayer>(player)));
             return Ok(player);
         }
     }

@@ -2,6 +2,7 @@
 using LivescoreRest.DataLayer.DAL;
 using LivescoreRest.DataLayer.Entities;
 using LivescoreRest.Models;
+using LivescoreRest.ServiceLayer.DTOs;
 using LivescoreRest.ServiceLayer.Service;
 using LivescoreRest.ServiceLayer.Service.Interface;
 using System;
@@ -34,7 +35,7 @@ namespace LivescoreRest.Controllers
         {
             string userID = GetUserID();
             var teams = _teamService.GetAllTeamsForUser(userID);
-            return Ok(teams);
+            return Ok(Mapper.Map<IEnumerable<TeamViewModel>>(teams));
         }
 
         [Route("api/teams/allteams")]
@@ -62,14 +63,14 @@ namespace LivescoreRest.Controllers
         [HttpGet]
         public IHttpActionResult Levels(string level)
         {
-            return Ok(_teamService.GetAllTeamsFromLevel(level));
+            return Ok(Mapper.Map<IEnumerable<TeamViewModel>>(_teamService.GetAllTeamsFromLevel(level)));
         }
 
         [HttpGet]
         public IHttpActionResult GetTeam(int id)
         {
             var team = _teamService.GetById(id);
-            return Ok(team);
+            return Ok(Mapper.Map<TeamViewModel>(team));
         }
 
         [HttpPost]
@@ -77,7 +78,7 @@ namespace LivescoreRest.Controllers
         {
             string userID = GetUserID();
             team.UserID = userID;
-            _teamService.Add(Mapper.Map<Team>(team));
+            _teamService.Add(Mapper.Map<DTOTeam>(team));
             return Ok();
         }
         [HttpDelete]
@@ -88,9 +89,9 @@ namespace LivescoreRest.Controllers
         }
 
         [HttpPut]
-        public IHttpActionResult EditTeam(Team team)
+        public IHttpActionResult EditTeam(TeamViewModel team)
         {
-            _teamService.Edit(team);
+            _teamService.Edit(Mapper.Map<DTOTeam>(team));
             return Ok(team);
         }
     }

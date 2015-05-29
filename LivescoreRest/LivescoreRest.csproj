@@ -183,6 +183,7 @@
     <Compile Include="Controllers\TeamsController.cs" />
     <Compile Include="Helpers\SimpleAuthorizationServerProvider.cs" />
     <Compile Include="Models\AllTeamsViewModel.cs" />
+    <Compile Include="Models\GameIncidentViewModel.cs" />
     <Compile Include="Models\GameViewModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\PlayerViewModel.cs" />
@@ -204,6 +205,10 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{80779cc7-312c-4e14-937c-a63f3fa6daa6}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LivescoreRest.DataLayer\LivescoreRest.DataLayer.csproj">
       <Project>{63ba52cd-6ca6-43c1-948f-9a02bd5948f6}</Project>
       <Name>LivescoreRest.DataLayer</Name>
