@@ -6,11 +6,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LivescoreRest.DataLayer.DAL.Interface;
+using AutoMapper;
+using LivescoreRest.ServiceLayer.DTOs;
 
 namespace LivescoreRest.ServiceLayer.Service
 {
-    public abstract class BaseService<T> : IBaseService<T> 
+    public abstract class BaseService<T, DTO> : IBaseService<T, DTO> 
         where T : BaseEntity
+        where DTO : BaseDTO
     {
 
         private readonly IBaseRepository<T> _repository;
@@ -21,19 +24,20 @@ namespace LivescoreRest.ServiceLayer.Service
 
         }
 
-        public IEnumerable<T> GetAll()
+        public IEnumerable<DTO> GetAll()
         {
-            return _repository.GetAll();
+            return Mapper.Map<IEnumerable<DTO>>(_repository.GetAll());
         }
 
-        public T GetById(int id)
+        public DTO GetById(int id)
         {
-            return _repository.GetById(id);
+            return Mapper.Map<DTO>(_repository.GetById(id));
         }
 
-        public T Add(T entity)
+        public DTO Add(DTO dto)
         {
-            return _repository.Add(entity);
+            T entity = Mapper.Map<T>(dto);
+            return Mapper.Map<DTO>(_repository.Add(entity));
         }
 
         public void Delete(int id)
@@ -41,8 +45,9 @@ namespace LivescoreRest.ServiceLayer.Service
             _repository.Delete(id);
         }
 
-        public void Edit(T entity)
+        public void Edit(DTO dto)
         {
+            T entity = Mapper.Map<T>(dto);
             _repository.Edit(entity);
         }
     }

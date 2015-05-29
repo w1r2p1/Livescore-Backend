@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LivescoreRest.DataLayer.Entities
+namespace LivescoreRest.ServiceLayer.DTOs
 {
-    public abstract class BaseEntity
+    public abstract class BaseDTO
     {
-        public int Id { get; set; }
-
     }
 }

@@ -16,27 +16,30 @@ namespace LivescoreRest.App_Start
             TeamMappers();
             PlayerMappers();
             GameMappers();
+            GameIncidentMappers();
         }
 
         private static void TeamMappers()
         {
-            Mapper.CreateMap<TeamViewModel, Team>();
-            Mapper.CreateMap<Team, TeamViewModel>();
+            Mapper.CreateMap<TeamViewModel, DTOTeam>();
+            Mapper.CreateMap<DTOTeam, TeamViewModel>();
+
+            Mapper.CreateMap<Team, DTOTeam>();
+            Mapper.CreateMap<DTOTeam, Team>();
         }
 
         private static void PlayerMappers()
         {
-            Mapper.CreateMap<Player, PlayerViewModel>();
-            Mapper.CreateMap<PlayerViewModel, Player>();
+            Mapper.CreateMap<DTOPlayer, PlayerViewModel>();
+            Mapper.CreateMap<PlayerViewModel, DTOPlayer>();
+
+            Mapper.CreateMap<DTOPlayer, Player>();
+            Mapper.CreateMap<Player, DTOPlayer>();
         }
 
         private static void GameMappers()
         {
-            Mapper.CreateMap<Game, GameViewModel>()
-                .ForMember(x => x.AwayTeamPlayers, y => y.Ignore())
-                .ForMember(x => x.HomeTeamPlayers, y => y.Ignore());
-
-            Mapper.CreateMap<GameViewModel, Game>();
+           
 
             Mapper.CreateMap<DTOGame, Game>();
             Mapper.CreateMap<Game, DTOGame>()
@@ -44,7 +47,19 @@ namespace LivescoreRest.App_Start
                 .ForMember(x => x.HomeTeamPlayers, y => y.Ignore());
 
             Mapper.CreateMap<DTOGame, GameViewModel>();
-            Mapper.CreateMap<GameViewModel, DTOGame>();
+            Mapper.CreateMap<GameViewModel, DTOGame>()
+                .ForMember(x => x.HomeTeam, y => y.Ignore())
+                .ForMember(x => x.AwayTeam, y => y.Ignore());
+        }
+
+        private static void GameIncidentMappers()
+        {
+            Mapper.CreateMap<DTOGameIncident, GameIncident>()
+                .ForMember(x => x.MatchIncidentType, y => y.MapFrom(z => (int)z.MatchIncidentType));
+            Mapper.CreateMap<GameIncident, DTOGameIncident>();
+
+            Mapper.CreateMap<DTOGameIncident, GameIncidentViewModel>();
+            Mapper.CreateMap<GameIncidentViewModel, DTOGameIncident>();
         }
 
     }

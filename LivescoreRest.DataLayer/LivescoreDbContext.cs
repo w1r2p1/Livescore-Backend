@@ -18,6 +18,7 @@ namespace LivescoreRest.DataLayer
         public DbSet<Team> Team { get; set; }
         public DbSet<Player> Player { get; set; }
         public DbSet<Game> Game { get; set; }
+        public DbSet<GameIncident> GameIncident { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

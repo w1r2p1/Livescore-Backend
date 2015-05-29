@@ -13,7 +13,7 @@ using System.Transactions;
 
 namespace LivescoreRest.ServiceLayer.Service
 {
-    public  class GameService : BaseService<Game>, IGameService
+    public  class GameService : BaseService<Game, DTOGame>, IGameService
     {
 
         private readonly IGameRepository _gameRepository;
@@ -25,9 +25,9 @@ namespace LivescoreRest.ServiceLayer.Service
             _playerRepository = playerRepository;
         }
 
-        public IEnumerable<Game> GetMyComingGames(string userId)
+        public IEnumerable<DTOGame> GetMyComingGames(string userId)
         {
-            return _gameRepository.GetMyComingGames(userId);
+            return Mapper.Map<IEnumerable<DTOGame>>(_gameRepository.GetMyComingGames(userId));
         }
 
         public DTOGame GetGame(int id)
@@ -35,8 +35,8 @@ namespace LivescoreRest.ServiceLayer.Service
             using (TransactionScope scope = new TransactionScope())
             {
                 var game = Mapper.Map<DTOGame>(_gameRepository.GetById(id));
-                game.HomeTeamPlayers = Mapper.Map<IEnumerable<Player>>(_playerRepository.GetAllByTeamID(game.HomeTeam.Id));
-                game.AwayTeamPlayers = Mapper.Map<IEnumerable<Player>>(_playerRepository.GetAllByTeamID(game.AwayTeam.Id));
+                game.HomeTeamPlayers = Mapper.Map<IEnumerable<DTOPlayer>>(_playerRepository.GetAllByTeamID(game.HomeTeam.Id));
+                game.AwayTeamPlayers = Mapper.Map<IEnumerable<DTOPlayer>>(_playerRepository.GetAllByTeamID(game.AwayTeam.Id));
                 return game;
             }
         }

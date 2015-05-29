@@ -8,14 +8,7 @@ using System.Threading.Tasks;
 
 namespace LivescoreRest.ServiceLayer.Service.Interface
 {
-    public interface IBaseService<T, DTO> : IService 
-        where T : BaseEntity
-        where DTO : BaseDTO
+    public interface IGameIncidentService : IBaseService<GameIncident, DTOGameIncident>
     {
-        IEnumerable<DTO> GetAll();
-        DTO GetById(int id);
-        DTO Add(DTO dto);
-        void Delete(int id);
-        void Edit(DTO dto);
     }
 }

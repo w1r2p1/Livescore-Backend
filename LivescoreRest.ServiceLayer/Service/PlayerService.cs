@@ -1,5 +1,7 @@
-﻿using LivescoreRest.DataLayer.DAL.Interface;
+﻿using AutoMapper;
+using LivescoreRest.DataLayer.DAL.Interface;
 using LivescoreRest.DataLayer.Entities;
+using LivescoreRest.ServiceLayer.DTOs;
 using LivescoreRest.ServiceLayer.Service.Interface;
 using System;
 using System.Collections.Generic;
@@ -9,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace LivescoreRest.ServiceLayer.Service
 {
-    public class PlayerService : BaseService<Player>, IPlayerService
+    public class PlayerService : BaseService<Player, DTOPlayer>, IPlayerService
     {
         private readonly IPlayerRepository _playerRepository;
 
@@ -19,9 +21,9 @@ namespace LivescoreRest.ServiceLayer.Service
             _playerRepository = playerRepository;
         }
 
-        public IEnumerable<Player> GetAllByTeamID(int teamID) 
+        public IEnumerable<DTOPlayer> GetAllByTeamID(int teamID) 
         {
-            return _playerRepository.GetAllByTeamID(teamID);
+            return Mapper.Map<IEnumerable<DTOPlayer>>(_playerRepository.GetAllByTeamID(teamID));
         }
     }
 }

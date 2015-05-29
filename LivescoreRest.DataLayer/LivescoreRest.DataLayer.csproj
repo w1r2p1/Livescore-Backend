@@ -84,8 +84,10 @@
     <Compile Include="AuthContext.cs" />
     <Compile Include="DAL\AuthRepository.cs" />
     <Compile Include="DAL\BaseRepository.cs" />
+    <Compile Include="DAL\GameIncidentRepository.cs" />
     <Compile Include="DAL\GameRepository.cs" />
     <Compile Include="DAL\Interface\IBaseRepository.cs" />
+    <Compile Include="DAL\Interface\IGameIncidentRepository.cs" />
     <Compile Include="DAL\Interface\IGameRepository.cs" />
     <Compile Include="DAL\Interface\IPlayerRepository.cs" />
     <Compile Include="DAL\Interface\IRepository.cs" />
@@ -94,6 +96,7 @@
     <Compile Include="DAL\TeamRepository.cs" />
     <Compile Include="Entities\BaseEntity.cs" />
     <Compile Include="Entities\Game.cs" />
+    <Compile Include="Entities\GameIncident.cs" />
     <Compile Include="Entities\Player.cs" />
     <Compile Include="Entities\Team.cs" />
     <Compile Include="Entities\UserModel.cs" />
@@ -126,6 +129,10 @@
     <Compile Include="Migrations\201505211137378_GameUserIDMandatory.Designer.cs">
       <DependentUpon>201505211137378_GameUserIDMandatory.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201505291228295_GameIncidents.cs" />
+    <Compile Include="Migrations\201505291228295_GameIncidents.Designer.cs">
+      <DependentUpon>201505291228295_GameIncidents.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -155,6 +162,15 @@
     <EmbeddedResource Include="Migrations\201505211137378_GameUserIDMandatory.resx">
       <DependentUpon>201505211137378_GameUserIDMandatory.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505291228295_GameIncidents.resx">
+      <DependentUpon>201505291228295_GameIncidents.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{80779cc7-312c-4e14-937c-a63f3fa6daa6}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
