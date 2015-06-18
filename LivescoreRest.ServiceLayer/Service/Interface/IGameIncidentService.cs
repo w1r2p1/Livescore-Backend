@@ -10,5 +10,6 @@ namespace LivescoreRest.ServiceLayer.Service.Interface
 {
     public interface IGameIncidentService : IBaseService<GameIncident, DTOGameIncident>
     {
+        IEnumerable<DTOGameIncident> GetGameIncidentsFromGame(int id);
     }
 }

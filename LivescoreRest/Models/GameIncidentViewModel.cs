@@ -27,5 +27,8 @@ namespace LivescoreRest.Models
 
         [Required]
         public Common.Helpers.MatchIncidents.MatchIncidentsEnum MatchIncidentType { get; set; }
+
+        [Required]
+        public string Result { get; set; }
     }
 }

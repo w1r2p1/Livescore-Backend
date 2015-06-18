@@ -24,7 +24,7 @@ namespace LivescoreRest.App_Start
             builder.RegisterType<TeamsController>();
             builder.RegisterType<PlayersController>();
             builder.RegisterType<GamesController>();
-            builder.RegisterType<GameIncidentController>();
+            builder.RegisterType<GameIncidentsController>();
 
             //Servies and repositories
             builder.RegisterType<TeamRepository>().As<ITeamRepository>();

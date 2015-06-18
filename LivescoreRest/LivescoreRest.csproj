@@ -177,12 +177,13 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\DataController.cs" />
-    <Compile Include="Controllers\GameIncidentController.cs" />
+    <Compile Include="Controllers\GameIncidentsController.cs" />
     <Compile Include="Controllers\GamesController.cs" />
     <Compile Include="Controllers\PlayersController.cs" />
     <Compile Include="Controllers\TeamsController.cs" />
     <Compile Include="Helpers\SimpleAuthorizationServerProvider.cs" />
     <Compile Include="Models\AllTeamsViewModel.cs" />
+    <Compile Include="Models\FollowGameViewModel.cs" />
     <Compile Include="Models\GameIncidentViewModel.cs" />
     <Compile Include="Models\GameViewModel.cs" />
     <Compile Include="Models\LoginModel.cs" />

@@ -12,5 +12,7 @@ namespace LivescoreRest.ServiceLayer.Service.Interface
     {
         IEnumerable<DTOGame> GetMyComingGames(string userId);
         DTOGame GetGame(int id);
+        IEnumerable<DTOGame> GetTodaysGames();
+        DTOFollowGame GetGameToFollow(int gameId);
     }
 }

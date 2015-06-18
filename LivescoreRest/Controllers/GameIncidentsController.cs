@@ -12,22 +12,31 @@ using System.Web.Http;
 
 namespace LivescoreRest.Controllers
 {
-    public class GameIncidentController : ApiController
+    [AllowAnonymous]
+    public class GameIncidentsController : ApiController
     {
         private readonly IGameIncidentService _gameIncidentService;
 
-        public GameIncidentController(IGameIncidentService gameIncidentService)
+        public GameIncidentsController(IGameIncidentService gameIncidentService)
         {
             _gameIncidentService = gameIncidentService;
         }
 
 
         [HttpPost]
+        [Authorize]
         public IHttpActionResult NewGameIncident(GameIncidentViewModel model)
         {
             var incident = Mapper.Map<DTOGameIncident>(model);
             _gameIncidentService.Add(incident);
             return Ok();
+        }
+
+        [HttpGet]
+        public IHttpActionResult GetGameIncidents(int gameId)
+        {
+            var incidentsFromGame = _gameIncidentService.GetGameIncidentsFromGame(gameId);
+            return Ok(Mapper.Map<IEnumerable<GameIncidentViewModel>>(incidentsFromGame));
         }
     }
 }

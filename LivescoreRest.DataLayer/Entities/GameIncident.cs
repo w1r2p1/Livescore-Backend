@@ -30,5 +30,8 @@ namespace LivescoreRest.DataLayer.Entities
         public Player Player { get; set; }
 
         public int MatchIncidentType { get; set; }
+
+        [Required]
+        public string Result { get; set; }
     }
 }

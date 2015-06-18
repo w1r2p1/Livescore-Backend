@@ -36,5 +36,18 @@ namespace LivescoreRest.DataLayer.DAL
                 return game;
             }
         }
+
+        public IEnumerable<Game> GetTodaysGames()
+        {
+            using (var dbContext = new LivescoreDbContext())
+            {
+                var games =
+                    dbContext.Game.Where(x => x.MatchDate.Year == DateTime.Now.Year && x.MatchDate.Month == DateTime.Now.Month && x.MatchDate.Day == DateTime.Now.Day)
+                    .Include(x => x.AwayTeam).Include(x => x.HomeTeam);
+                return games.ToList();
+            }
+        }
+
+        
     }
 }

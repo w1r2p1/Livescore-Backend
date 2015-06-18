@@ -24,5 +24,7 @@ namespace LivescoreRest.ServiceLayer.DTOs
         public DTOPlayer Player { get; set; }
 
         public Common.Helpers.MatchIncidents.MatchIncidentsEnum MatchIncidentType { get; set; }
+
+        public string Result { get; set; }
     }
 }
