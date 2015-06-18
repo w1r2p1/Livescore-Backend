@@ -133,6 +133,10 @@
     <Compile Include="Migrations\201505291228295_GameIncidents.Designer.cs">
       <DependentUpon>201505291228295_GameIncidents.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201506180812340_GameIncidentResult.cs" />
+    <Compile Include="Migrations\201506180812340_GameIncidentResult.Designer.cs">
+      <DependentUpon>201506180812340_GameIncidentResult.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -164,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201505291228295_GameIncidents.resx">
       <DependentUpon>201505291228295_GameIncidents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506180812340_GameIncidentResult.resx">
+      <DependentUpon>201506180812340_GameIncidentResult.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

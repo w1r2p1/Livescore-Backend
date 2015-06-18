@@ -29,6 +29,15 @@ namespace LivescoreRest.Controllers
             return user.Claims.First(x => x.Type == "UserID").Value;
         }
 
+        [HttpGet]
+        [AllowAnonymous]
+        [Route("api/games/today")]
+        public IHttpActionResult GetTodaysGames()
+        {
+            var games = _gameService.GetTodaysGames();
+            return Ok(Mapper.Map<IEnumerable<GameViewModel>>(games));
+        }
+
         [HttpPost]
         public IHttpActionResult Games(GameViewModel model)
         {
@@ -72,7 +81,7 @@ namespace LivescoreRest.Controllers
             return Ok();
         }
         
-        [HttpGet]
+        [HttpGet]        
         public IHttpActionResult GetGame(int gameId)
         {
             var gameModel = Mapper.Map<GameViewModel>(_gameService.GetGame(gameId));
@@ -84,6 +93,15 @@ namespace LivescoreRest.Controllers
         {
             _gameService.Delete(gameId);
             return Ok();
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        [Route("api/games/follow/{gameId}")]
+        public IHttpActionResult GetGameToFollow(int gameId)
+        {
+            var followGame = Mapper.Map<FollowGameViewModel>(_gameService.GetGameToFollow(gameId));
+            return Ok(followGame);
         }
 
         

@@ -11,5 +11,7 @@ namespace LivescoreRest.DataLayer.DAL.Interface
     {
         IEnumerable<Game> GetMyComingGames(string userId);
         //Game GetGame(int id);
+        IEnumerable<Game> GetTodaysGames();
+        
     }
 }

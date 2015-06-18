@@ -1,4 +1,5 @@
-﻿using LivescoreRest.DataLayer.DAL.Interface;
+﻿using AutoMapper;
+using LivescoreRest.DataLayer.DAL.Interface;
 using LivescoreRest.DataLayer.Entities;
 using LivescoreRest.ServiceLayer.DTOs;
 using LivescoreRest.ServiceLayer.Service.Interface;
@@ -18,6 +19,11 @@ namespace LivescoreRest.ServiceLayer.Service
             : base(gameIncidentRepository)
         {
             _gameIncidentRepository = gameIncidentRepository;
+        }
+
+        public IEnumerable<DTOGameIncident> GetGameIncidentsFromGame(int id)
+        {
+            return Mapper.Map<IEnumerable<DTOGameIncident>>(_gameIncidentRepository.GetGameIncidentsFromGame(id));
         }
     }
 }

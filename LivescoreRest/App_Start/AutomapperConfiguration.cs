@@ -50,6 +50,13 @@ namespace LivescoreRest.App_Start
             Mapper.CreateMap<GameViewModel, DTOGame>()
                 .ForMember(x => x.HomeTeam, y => y.Ignore())
                 .ForMember(x => x.AwayTeam, y => y.Ignore());
+
+            Mapper.CreateMap<Game, DTOFollowGame>()
+                .ForMember(x => x.GameIncidents, y => y.Ignore())
+                .ForMember(x => x.HomeTeamPlayers, y => y.Ignore())
+                .ForMember(x => x.AwayTeamPlayers, y => y.Ignore());
+
+            Mapper.CreateMap<DTOFollowGame, FollowGameViewModel>();
         }
 
         private static void GameIncidentMappers()

@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTOs\BaseDTO.cs" />
+    <Compile Include="DTOs\DTOFollowGame.cs" />
     <Compile Include="DTOs\DTOGame.cs" />
     <Compile Include="DTOs\DTOGameIncident.cs" />
     <Compile Include="DTOs\DTOPlayer.cs" />
